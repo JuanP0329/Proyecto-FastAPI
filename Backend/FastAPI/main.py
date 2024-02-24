@@ -1,6 +1,10 @@
 from fastapi import FastAPI
+from routers import products
 
 app = FastAPI()
+
+# Importar Router
+app.include_router(products.router)
 
 
 @app.get("/")
