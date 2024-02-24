@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from routers import products, users
+from routers import products, users, basic_auth_users
 
 app = FastAPI()
 
 # Importar Router
 app.include_router(products.router)
 app.include_router(users.router)
+app.include_router(basic_auth_users.router)
 
 # configuracion de los staticos para exponer img, videos, etc.
 app.mount("/static", StaticFiles(directory="static"), name="static")
